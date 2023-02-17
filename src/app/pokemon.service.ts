@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { delay, map, tap } from 'rxjs/operators';
+import { ApiConfig } from './api-config';
+import { API_CONFIG_INJECTION_TOKEN } from './app.module';
 
 
 export enum PokemonGeneration {
@@ -26,18 +28,22 @@ export interface FullPokemon {
 })
 export class PokemonService {
 
-  readonly baseurl = 'https://pokeapi.co/api/v2/pokemon'
-  private readonly gen1 = {
-    offset: 0,
-    limit: 151
-  }
-  private readonly gen2 = {
-    offset: 151,
-    limit: 100
+  public get baseurl() : string {
+    return this.apiConfig.baseurl
   }
 
+  public get gen1() {
+    return this.apiConfig.gen1
+  }
 
-  constructor(private http: HttpClient) { }
+  public get gen2() {
+    return this.apiConfig.gen2
+  }
+
+  constructor(
+    private http: HttpClient,
+    @Inject(API_CONFIG_INJECTION_TOKEN)
+    private apiConfig: ApiConfig) {}
 
   pokemonGeneration(gen: PokemonGeneration): Observable<Array<SimplePokemon>> {
     const params = gen === 'gen1' ? this.gen1 : this.gen2
