@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "scottmccaughey.angular-template-formatter",
+    "johnpapa.angular-essentials",
+    "dbaeumer.vscode-eslint",
+    "alexiv.vscode-angular2-files",
+    "Angular.ng-template",
+    "johnpapa.Angular2",
+    "natewallace.angular2-inline"
+  ],
+  "unwantedRecommendations": [
+    "stringham.angular-template-formatter",
+    "rvest.vs-code-prettier-eslint",
+    "SimonSiefke.prettier-vscode",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-tslint-plugin"
+  ]
+}
