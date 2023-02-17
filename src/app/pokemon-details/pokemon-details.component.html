@@ -1,0 +1,9 @@
+<div *ngIf="details$ | async as poke; else loading">
+  <h1>You selected {{poke.name}} – {{poke.id}} </h1>
+  <img style="width: 100%;" [src]="poke.imageSrc">
+</div>
+
+
+<ng-template #loading>
+  <span>⌛⌛⌛ Loading ⌛⌛⌛</span>
+</ng-template>

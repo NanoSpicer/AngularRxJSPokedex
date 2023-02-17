@@ -1,0 +1,8 @@
+<div
+  (click)="selected.emit(item)"
+  *ngFor="let item of pokemons"
+  style="border: solid 1px black; margin-top: 10px;" >
+  <h1>
+    {{item.name}}
+  </h1>
+</div>
